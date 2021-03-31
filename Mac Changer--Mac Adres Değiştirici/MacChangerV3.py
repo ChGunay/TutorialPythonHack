@@ -29,10 +29,10 @@ def detect_new_mac_address(interface):#This function will pull our new mac addre
 
 
 print("Mac Changer Started ")
-(interface_input,mac_address_input)=get_user_input()
-change_mac_adress(interface_input, mac_address_input)
+(user_input,arguments)=get_user_input()
+change_mac_adress(user_input.interface, user_input.mac_address)
 
-finalized_mac = detect_new_mac_address(interface_input)
+finalized_mac = detect_new_mac_address(user_input.interface)
 
 def control_new_mac_address(finalized_mac,mac_address):#This function compares the mac address entered by the user with the mac address of the instant system.--Bu işlev, kullanıcı tarafından girilen mac adresini anlık sistemin mac adresi ile karşılaştırır.
     if finalized_mac == mac_address:
@@ -40,7 +40,7 @@ def control_new_mac_address(finalized_mac,mac_address):#This function compares t
     else:
         print("Error!!")
         
-control_new_mac_address(finalized_mac, mac_address_input)
+control_new_mac_address(finalized_mac, user_input.mac_address)
 
 animation = "|/-\\"
 idx = 0
